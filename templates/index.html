@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agricultural Model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        .form-group {
+            margin: 20px 0;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Agricultural Model</h1>
+        <div class="form-group">
+            <label for="soil_image">Upload Soil Image:</label>
+            <input type="file" id="soil_image">
+            <button onclick="predictSoil()">Predict Soil</button>
+        </div>
+        <div class="form-group">
+            <label for="plant_image">Upload Plant Image:</label>
+            <input type="file" id="plant_image">
+            <button onclick="predictPlant()">Predict Plant Disease</button>
+        </div>
+        <div id="soil_result" class="result"></div>
+        <div id="plant_result" class="result"></div>
+    </div>
+    <script>
+        function predictSoil() {
+            var formData = new FormData();
+            var imageFile = document.getElementById('soil_image').files[0];
+            formData.append("image", imageFile);
+
+            fetch('/predict_soil', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+              .then(data => {
+                document.getElementById('soil_result').innerText = "Predicted Soil Class: " + data.class;
+              });
+        }
+
+        function predictPlant() {
+            var formData = new FormData();
+            var imageFile = document.getElementById('plant_image').files[0];
+            formData.append("image", imageFile);
+
+            fetch('/predict_plant', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+              .then(data => {
+                document.getElementById('plant_result').innerText = "Predicted Plant Disease Class: " + data.class;
+              });
+        }
+    </script>
+</body>
+</html>
