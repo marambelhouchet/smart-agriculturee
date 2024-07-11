@@ -27,8 +27,8 @@ To set up the project, follow these steps:
 
 1. **Clone the Repository**:
    ```sh
-   git clone https://github.com/marambelhouchet/smart-agriculture-project.git
-   cd smart-agriculture-project
+   git clone https://github.com/marambelhouchet/smart-agriculturee.git
+   cd smart-agriculturee
 2. **Install Dependencies**:
    pip install -r requirements.txt
 3. **Place Your Models**:
