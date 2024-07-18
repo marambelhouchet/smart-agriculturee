@@ -51,6 +51,6 @@ Get the predicted soil type and recommended crops.
 
 Upload an image of a mais leaf.
 Get the predicted disease and suggested treatment.
-### Contributing
+###  Contributing
 Contributions are welcome! Please create an issue or a pull request if you have any ideas for improvements or new features.
    
